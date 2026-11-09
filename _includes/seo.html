@@ -4,9 +4,9 @@
   Preview image: `og_image` in front matter, else /assets/img/og/<slug>.jpg for case studies, else the site default.
 {%- endcomment -%}
 {%- if page.url == '/' -%}
-  {%- assign seo_title = site.title | append: ' · ' | append: site.tagline -%}
+  {%- assign seo_title = site.title | append: ' | ' | append: site.tagline -%}
 {%- else -%}
-  {%- assign seo_title = page.title | append: ' · ' | append: site.title -%}
+  {%- assign seo_title = page.title | append: ' | ' | append: site.title -%}
 {%- endif -%}
 {%- assign seo_desc = page.summary | default: page.description | default: page.lead | default: site.description | strip_html | normalize_whitespace | truncate: 200 -%}
 {%- if page.og_image -%}

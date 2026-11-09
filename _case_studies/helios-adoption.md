@@ -21,7 +21,6 @@ company: HashiCorp
 year: "2021–2026"
 featured: true
 order: 3
-card_metric: { value: "92%", label: "Helios adoption, up from 65%" }   # headline metric on the home page
 cover: /assets/img/helios-adoption/cover.svg
 cover_alt: "Bar chart: Helios adoption grew from 65 percent to 92 percent."
 cover_width: 1200

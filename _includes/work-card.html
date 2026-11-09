@@ -27,7 +27,7 @@
     {%- endif %}
     <h3 class="card__title">{{ study.title }}</h3>
     <p class="card__summary">{{ study.summary }}</p>
-    {%- assign m = study.card_metric | default: study.metrics.first -%}
+    {%- assign m = study.metrics | first -%}
     {%- if m %}
     <p class="card__metric"><span class="card__metric-value">{{ m.value }}</span> <span class="card__metric-label">{{ m.label }}</span></p>
     {%- endif %}

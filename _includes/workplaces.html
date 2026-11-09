@@ -19,7 +19,7 @@
       <ul class="company__studies" role="list" aria-label="Case studies from {{ c.name }}">
         {%- for slug in c.studies -%}
         {%- assign s = site.case_studies | where: "slug", slug | first -%}
-        {%- if s %}<li><a href="{{ s.url | relative_url }}">{{ s.short_title | default: s.title }} <span aria-hidden="true">→</span></a></li>{% endif -%}
+        {%- if s %}<li><a href="{{ s.url | relative_url }}">{{ s.title }} <span aria-hidden="true">→</span></a></li>{% endif -%}
         {%- endfor %}
       </ul>
       {%- endif %}
