@@ -74,7 +74,9 @@ The "On this page" list and section numbers build themselves from your `##` head
 ```
 
 - **Alt text is required.** If you leave it out, the page shows a yellow "Missing alt text" box. Use `alt=""` only for purely decorative images.
-- **TODO notes** show as yellow boxes in the preview and **block publishing** until you delete them.
+- **TODO notes** (`todo.html`) show as yellow boxes and **block publishing** until you delete them. Notes inside `{% comment %}` are never published and don't block.
+- **`[X]` gaps** publish as written; the check only warns about them.
+- **Figure not ready?** `{% include figure.html slot="What it will show" %}` leaves an empty, labeled slot.
 - **Videos never autoplay.** They play while hovered or focused, and always show a Play/Pause button.
 
 ### Adding a new case study
@@ -121,7 +123,6 @@ No tools run on the server, so optimize images when you export them:
 
 `scripts/check.sh` fails if any of these are still in your content:
 
-- `[X]`, `[X%]` or any `[X …]` placeholder
 - `TODO` notes
 - the placeholder LinkedIn URL (`YOUR-HANDLE`)
 - the placeholder resume PDF
@@ -149,8 +150,8 @@ Then each time:
 bash scripts/preview.sh
 ```
 
-Open http://localhost:4000. The preview runs the pre-publish check first and **stops** if any `[X]` placeholder,
-TODO, or placeholder file is left. To look at a draft anyway:
+Open http://localhost:4000. The preview runs the pre-publish check first. `[X]` gaps print a one-line warning
+and publish as written. It **stops** for visible TODO boxes or placeholder files. To look at a draft anyway:
 
 ```bash
 bash scripts/preview.sh --draft

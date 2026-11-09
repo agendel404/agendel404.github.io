@@ -25,6 +25,9 @@
       <p class="statement__label label">{{ study.company }}{% if study.year %} · {{ study.year }}{% endif %}</p>
       <h3 id="project-{{ study.slug }}-title" class="project__title">{{ study.short_title | default: study.title }}</h3>
       <p class="project__disciplines">{{ study.tags | join: ", " }}</p>
+      {%- if study.card_metric %}
+      <p class="project__metric"><span class="project__metric-value">{{ study.card_metric.value }}</span> <span class="project__metric-label">{{ study.card_metric.label }}</span></p>
+      {%- endif %}
       <a class="pill" href="{{ study.url | relative_url }}"><svg class="pill__arrow" aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span>Read more<span class="visually-hidden">: {{ study.title }}</span></span></a>
     </div>
   </article>

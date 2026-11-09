@@ -23,7 +23,7 @@ opener: true
       {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
       {% if page.team %}<div><dt>Team</dt><dd>{{ page.team }}</dd></div>{% endif %}
       {% if page.timeline %}<div><dt>Timeline</dt><dd>{{ page.timeline }}</dd></div>{% endif %}
-      {% if page.tags %}<div><dt>Disciplines</dt><dd>{{ page.tags | join: ", " }}</dd></div>{% endif %}
+      {% if page.disciplines %}<div><dt>Disciplines</dt><dd>{{ page.disciplines }}</dd></div>{% elsif page.tags %}<div><dt>Disciplines</dt><dd>{{ page.tags | join: ", " }}</dd></div>{% endif %}
     </dl>
     {% include scroll-cue.html target="cs-content" %}
   </section>

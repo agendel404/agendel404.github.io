@@ -2,8 +2,8 @@
 # Local preview at http://localhost:4000 (optional; GitHub publishes without this).
 # Needs Ruby + Bundler once:  bundle install
 #
-# The pre-publish check runs first and STOPS the preview if any [X] placeholder,
-# TODO, or placeholder file remains. To look at a draft anyway:
+# The pre-publish check runs first. [X] gaps only print a warning. It STOPS the preview
+# for visible TODO boxes or placeholder files. To look at a draft anyway:
 #   bash scripts/preview.sh --draft
 cd "$(dirname "$0")/.."
 export LANG="${LANG:-en_US.UTF-8}" LC_ALL="${LC_ALL:-en_US.UTF-8}"   # Jekyll needs a UTF-8 locale

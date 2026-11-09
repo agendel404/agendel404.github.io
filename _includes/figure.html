@@ -8,7 +8,15 @@
   Decorative image? Pass alt="" on purpose. Leaving alt out shows a warning box.
 
   {% include figure.html src="/assets/img/slug/diagram.svg" alt="…" width="1200" height="675" caption="…" panel="true" %}
+
+  No image yet? Leave an empty, labeled slot (shows on the page until you add the image):
+  {% include figure.html slot="What the figure will show" %}
 {%- endcomment -%}
+{%- if include.slot and include.src == nil -%}
+<figure class="figure figure--slot">
+<div class="figure__slot"><p class="label">Figure coming soon</p><p>{{ include.slot }}</p></div>
+</figure>
+{%- else -%}
 {%- if include.alt == nil -%}
 <p class="authoring-warning" role="note"><strong>Missing alt text</strong> for {{ include.src }}. Add alt="…" (or alt="" if purely decorative).</p>
 {%- endif -%}
@@ -20,3 +28,4 @@
 </picture>
 {%- if include.caption %}<figcaption>{{ include.caption | markdownify | remove: '<p>' | remove: '</p>' | strip }}</figcaption>{% endif -%}
 </figure>
+{%- endif -%}
